@@ -1,0 +1,10 @@
+C:\Users\santi\source\repos\Deymin\Deymin\obj\Debug\Deymin.csproj.AssemblyReference.cache
+C:\Users\santi\source\repos\Deymin\Deymin\obj\Debug\Deymin.csproj.CoreCompileInputs.cache
+C:\Users\santi\source\repos\Deymin\Deymin\bin\Debug\Deymin.exe.config
+C:\Users\santi\source\repos\Deymin\Deymin\bin\Debug\Deymin.exe
+C:\Users\santi\source\repos\Deymin\Deymin\bin\Debug\Deymin.pdb
+C:\Users\santi\source\repos\Deymin\Deymin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\santi\source\repos\Deymin\Deymin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\santi\source\repos\Deymin\Deymin\obj\Debug\Deymin.csproj.Up2Date
+C:\Users\santi\source\repos\Deymin\Deymin\obj\Debug\Deymin.exe
+C:\Users\santi\source\repos\Deymin\Deymin\obj\Debug\Deymin.pdb
