@@ -24,10 +24,7 @@ namespace Deymin
     {
         static async Task Main(string[] args)
         {
-            Console.Title = "Deymin by ven";
-            string filepath = "C:\\Users\\santi\\source\\repos\\Deymin\\Deymin\\banner.txt";
-            string filecontents = File.ReadAllText(filepath, Encoding.UTF8);
-            Console.WriteLine(filecontents);
+            Console.Title = "Deymin by visor";
             Console.WriteLine("         Enter an ip address: ");
             string ip = Console.ReadLine();
             string url = $"https://ipinfo.io/{ip}/json";
