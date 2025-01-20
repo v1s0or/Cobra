@@ -22,7 +22,7 @@ namespace Deymin
     }
     internal class Program
     {
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.Title = "Deymin by visor";
             Console.WriteLine("         Enter an ip address: ");
