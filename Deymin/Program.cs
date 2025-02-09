@@ -1,10 +1,12 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Net.Sockets;
 using System.Globalization;
 using System.Threading;
 
@@ -19,20 +21,30 @@ namespace Deymin
         public string timezone { get; set; }
         public string loc { get; set; }
         public string ip { get; set; }
-        public string vpn { get; set; }
-        public string proxy { get; set; }
-        public string tor { get; set; }
-        public string relay { get; set; }
-        public string hosting { get; set; }
     }
     internal class Program
     {
         public static async Task Main()
         {
+            string filePath = "banner.txt";  // Specify the path to your banner file
+
+            try
+            {
+                // Try to read the file content
+                string content = File.ReadAllText(filePath);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine(content);  // Output the banner content
+                Console.ResetColor();
+            }
+            catch (Exception)
+            {
+                Console.Clear();
+            }
+
             Console.Title = "Deymin";
             string User = Environment.UserName;
-            Console.WriteLine($"     Hello {User}, Welcome to Deymin");
-            Console.WriteLine("         Enter an ip address: ");
+            Console.WriteLine($"Hello {User}, Welcome to Deymin");
+            Console.WriteLine("Enter an ip address: ");
             string ip = Console.ReadLine();
             string url = $"https://ipinfo.io/{ip}/json";
 
@@ -42,10 +54,6 @@ namespace Deymin
                 {
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
-
-                
-                    Console.Clear();
-                    Console.WriteLine("\n[+] Request Complete!\n");
 
                     string responseData = await response.Content.ReadAsStringAsync();
                     Data Ipinfo = JsonConvert.DeserializeObject<Data>(responseData);
@@ -57,21 +65,56 @@ namespace Deymin
                     Console.WriteLine($"City: {Ipinfo.city}");
                     Console.WriteLine($"Cords: {Ipinfo.loc}");
                     Console.WriteLine($"Postal Code: {Ipinfo.postal}");
-                    Console.WriteLine($"\nRegion: {Ipinfo.region}\n");
-                    Console.WriteLine($"VPN: {Ipinfo.vpn}");
-                    Console.WriteLine($"Proxy: {Ipinfo.proxy}");
-                    Console.WriteLine($"Tor: {Ipinfo.tor}");
-                    Console.WriteLine($"Relay: {Ipinfo.relay}");
-                    Console.WriteLine($"Hosting: {Ipinfo.hosting}");
+                    Console.WriteLine($"Region: {Ipinfo.region}");
+                    Console.WriteLine("\n[+] Scanning Vulnerable ports with AternalJaguar (Sit back as this may take a while)");
 
+                    string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050" };
+
+                    try
+                    {
+                        var tasks = new List<Task>();
+
+                        foreach (string port in ports)
+                        {
+                            tasks.Add(CheckPortAsync(ip, port));
+                        }
+
+                        await Task.WhenAll(tasks);
+                        Console.ReadLine();
+                    }
+                    catch (Exception)
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.WriteLine("[!] Error has been detected while running AternalJaguar");
+                        Console.ReadLine();
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"[!] An error occurred: {ex.Message}");
+                }
+            }
+        }
 
+        private static async Task CheckPortAsync(string ip, string port)
+        {
+            using (TcpClient tcpClient = new TcpClient())
+            {
+                try
+                {
+                    await tcpClient.ConnectAsync(ip, Convert.ToInt32(port));
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[+] Port {port} is open");
+                }
                 catch (Exception)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine("[!] Error has been detected");
-                    Console.ReadLine();
+                    Console.WriteLine($"[-] Port {port} is closed");
                 }
             }
         }
