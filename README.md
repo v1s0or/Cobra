@@ -1,5 +1,5 @@
 # Deymin
-Simple IP lookup made by me
+Simple IP lookup made by me built with a port scanner (AternalJaguar)
 
 # Uses
 .Net Framework (Works only windows(I Think))
