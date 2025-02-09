@@ -2,12 +2,7 @@
 Simple IP lookup made by me built with a port scanner (AternalJaguar)
 
 # Uses
-.Net Framework (Works only windows(I Think))
+.Net Framework 
 
-I dont know what else to add here
-
-# How to launch
-Deymin(folder) >> bin >> Debug >> Deymin.exe 
-
-## If you have Visual Studio
+## If you have Visual Studio 2022
 Launch the .sln file
