@@ -68,8 +68,8 @@ namespace Deymin
                     Console.WriteLine($"Region: {Ipinfo.region}");
                     Console.WriteLine("\n[+] Scanning Vulnerable ports with AternalJaguar (Sit back as this may take a while)");
 
-                    string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050" };
-
+                    string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050", "139", "500", "80", "137", "139", "1433", "1434", "3306", "443"};
+                    
                     try
                     {
                         var tasks = new List<Task>();
