@@ -1,4 +1,4 @@
-# Deymin
+# Cobra
 Simple IP lookup made by me built with a port scanner (AternalJaguar)
 
 ## Uses
