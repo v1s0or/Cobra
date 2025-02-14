@@ -10,7 +10,7 @@ using System.Net.Sockets;
 using System.Globalization;
 using System.Threading;
 
-namespace Deymin
+namespace Cobra
 {
     public class Data
     {
