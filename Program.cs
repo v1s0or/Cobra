@@ -1,14 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Sockets;
-using System.Globalization;
-using System.Threading;
+using System.Media;
 
 namespace Cobra
 {
@@ -26,13 +23,13 @@ namespace Cobra
     {
         public static async Task Main()
         {
-            string filePath = "banner.txt";  // Specify the path to your banner file
+            string filePath = "Resource\\banner.txt";
 
             try
             {
                 string content = File.ReadAllText(filePath);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(content); // Output the banner content
+                Console.WriteLine(content); 
                 Console.ResetColor();
             }
             catch (Exception)
@@ -40,9 +37,9 @@ namespace Cobra
                 Console.Clear();
             }
 
-            Console.Title = "Cobra";
+            Console.Title = "Cobra - [v1s0or]";
             string User = Environment.UserName;
-            Console.WriteLine($"Hello {User}, Welcome to Cobra");
+            Console.WriteLine($"Hello {User}, Welcome to Cobra.");
             Console.WriteLine("Enter an IP address: ");
             string ip = Console.ReadLine();
             string url = $"https://ipinfo.io/{ip}/json";
@@ -53,11 +50,15 @@ namespace Cobra
                 {
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
-
+                    PlaySound();
                     string responseData = await response.Content.ReadAsStringAsync();
                     Data Ipinfo = JsonConvert.DeserializeObject<Data>(responseData);
 
                     Console.Clear();
+                    string content = File.ReadAllText(filePath);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(content);
+                    Console.ResetColor();
                     Console.WriteLine($"Country: {Ipinfo.country}");
                     Console.WriteLine($"IP: {Ipinfo.ip};");
                     Console.WriteLine($"Timezone: {Ipinfo.timezone}");
@@ -65,7 +66,9 @@ namespace Cobra
                     Console.WriteLine($"Cords: {Ipinfo.loc}");
                     Console.WriteLine($"Postal Code: {Ipinfo.postal}");
                     Console.WriteLine($"Region: {Ipinfo.region}");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"\n[+] Scanning Vulnerable ports with AternalJaguar (Sit back as this may take a while)\n");
+                    Console.ResetColor();
 
                     string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050", "139", "500", "80", "137", "139", "1433", "1434", "3306", "443"};
 
@@ -83,17 +86,30 @@ namespace Cobra
                     }
                     catch (Exception)
                     {
+                        FailSound();
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.WriteLine("[!] Error has been detected while running AternalJaguar");
+                        Console.ResetColor();
                         Console.ReadLine();
                     }
                 }
                 catch (Exception ex)
                 {
+                    Console.Clear(); // customizing the console looks crazy on code
+                    FailSound();
+                    string content = File.ReadAllText(filePath);
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine(content); 
+                    Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.WriteLine($"[!] An error occurred: {ex.Message}");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nPress any key to exit...");
+                    Console.ResetColor();
                     Console.ReadKey();
                 }
             }
@@ -107,14 +123,26 @@ namespace Cobra
                 {
                     await tcpClient.ConnectAsync(ip, Convert.ToInt32(port));
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"[+] Port {port} is open");
+                    Console.WriteLine($"[+] Port {port} is open [+]");
                 }
                 catch (Exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"[-] Port {port} is closed");
+                    Console.WriteLine($"[-] Port {port} is closed [-]");
                 }
             }
+        }
+        public static void PlaySound()
+        {
+            SoundPlayer player = new SoundPlayer();
+            player.SoundLocation = "Resource\\chime.wav";
+            player.Play();
+        }
+        public static void FailSound()
+        {
+            SoundPlayer player = new SoundPlayer();
+            player.SoundLocation = "Resource\\ding.wav";
+            player.Play();
         }
     }
 }
