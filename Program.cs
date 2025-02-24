@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -39,7 +39,7 @@ namespace Cobra
 
             Console.Title = "Cobra - [v1s0or]";
             string User = Environment.UserName;
-            Console.WriteLine($"Hello {User}, Welcome to Cobra.");
+            Console.WriteLine($"Hello {User}, Welcome to Cobra. Made by v1s0or.");
             Console.WriteLine("Enter an IP address: ");
             string ip = Console.ReadLine();
             string url = $"https://ipinfo.io/{ip}/json";
