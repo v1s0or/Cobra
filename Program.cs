@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace Cobra
             {
                 string content = File.ReadAllText(filePath);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(content); 
+                Console.WriteLine(content);
                 Console.ResetColor();
             }
             catch (Exception)
@@ -70,7 +70,7 @@ namespace Cobra
                     Console.WriteLine($"\n[+] Scanning Vulnerable ports with AternalJaguar (Sit back as this may take a while)\n");
                     Console.ResetColor();
 
-                    string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050", "139", "500", "80", "137", "139", "1433", "1434", "3306", "443"};
+                    string[] ports = { "21", "22", "23", "25", "445", "3389", "5900", "4444", "10134", "1608", "1604", "50050", "139", "500", "80", "137", "139", "1433", "1434", "3306", "443" };
 
                     try
                     {
@@ -101,7 +101,7 @@ namespace Cobra
                     FailSound();
                     string content = File.ReadAllText(filePath);
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine(content); 
+                    Console.WriteLine(content);
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Red;

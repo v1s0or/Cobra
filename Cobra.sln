@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35826.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cobra", "Cobra\Cobra.csproj", "{577043F6-D2E6-4F1E-89CE-7F2E1E002363}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cobra", "Cobra\Cobra.csproj", "{662F62AE-FF50-4A93-925D-AE80D293DF62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{577043F6-D2E6-4F1E-89CE-7F2E1E002363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{577043F6-D2E6-4F1E-89CE-7F2E1E002363}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{577043F6-D2E6-4F1E-89CE-7F2E1E002363}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{577043F6-D2E6-4F1E-89CE-7F2E1E002363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662F62AE-FF50-4A93-925D-AE80D293DF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662F62AE-FF50-4A93-925D-AE80D293DF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662F62AE-FF50-4A93-925D-AE80D293DF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662F62AE-FF50-4A93-925D-AE80D293DF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D13D8FF4-CA2E-4631-93B6-15ABDACDEE6C}
 	EndGlobalSection
 EndGlobal
