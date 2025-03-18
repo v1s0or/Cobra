@@ -60,7 +60,7 @@ namespace Cobra
                     Console.WriteLine(content);
                     Console.ResetColor();
                     Console.WriteLine($"Country: {Ipinfo.country}");
-                    Console.WriteLine($"IP: {Ipinfo.ip};");
+                    Console.WriteLine($"IP: {Ipinfo.ip}");
                     Console.WriteLine($"Timezone: {Ipinfo.timezone}");
                     Console.WriteLine($"City: {Ipinfo.city}");
                     Console.WriteLine($"Cords: {Ipinfo.loc}");
